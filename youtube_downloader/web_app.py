@@ -78,7 +78,7 @@ def create_app(output_dir: str = "./downloads") -> Flask:
             resolutions.append({
                 "height": s.resolution,
                 "label": f"{s.resolution}p",
-                "disabled": s.resolution > 720,
+                "disabled": False,
             })
 
         resolutions.sort(key=lambda r: r["height"], reverse=True)
