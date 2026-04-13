@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "youtube-downloader"
+version = "0.1.0"
+description = "A CLI and web application for downloading YouTube videos"
+requires-python = ">=3.11"
+dependencies = [
+    "yt-dlp",
+    "click",
+    "flask",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "hypothesis",
+    "pytest-mock",
+    "pytest-cov",
+]
+
+[project.scripts]
+youtube-downloader = "youtube_downloader.cli:main"

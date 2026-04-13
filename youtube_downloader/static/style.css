@@ -1,0 +1,105 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #fff;
+  color: #202124;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  padding: 0 24px;
+}
+
+.title { font-size: 3rem; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 8px; }
+.subtitle { font-size: 1rem; color: #5f6368; margin-bottom: 32px; }
+
+/* Search row — input + search button side by side */
+.search-row {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  align-items: center;
+}
+
+#url-input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: 1px solid #dfe1e5;
+  border-radius: 24px;
+  outline: none;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+#url-input:focus { border-color: transparent; box-shadow: 0 1px 6px rgba(32,33,36,0.28); }
+#url-input::placeholder { color: #9aa0a6; }
+
+.loading-indicator {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #5f6368;
+  text-align: center;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+#quality-select {
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  border: 1px solid #dfe1e5;
+  border-radius: 24px;
+  outline: none;
+  background: #fff;
+  min-width: 180px;
+  cursor: pointer;
+}
+#quality-select:focus { border-color: #1a73e8; box-shadow: 0 0 0 2px rgba(26,115,232,0.2); }
+
+#download-btn {
+  padding: 10px 28px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #fff;
+  background: #34a853;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+#download-btn:hover { background: #2d9249; }
+#download-btn:disabled { background: #dadce0; color: #80868b; cursor: not-allowed; }
+
+.error-msg { margin-top: 20px; font-size: 0.9rem; color: #d93025; text-align: center; max-width: 560px; }
+
+.progress-area { margin-top: 28px; width: 100%; max-width: 560px; text-align: center; }
+.video-title { font-size: 0.95rem; color: #3c4043; margin-bottom: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.progress-bar-track { width: 100%; height: 8px; background: #e8eaed; border-radius: 4px; overflow: hidden; }
+.progress-bar-fill { height: 100%; width: 0%; background: #1a73e8; border-radius: 4px; transition: width 0.3s ease; }
+.progress-label { display: inline-block; margin-top: 8px; font-size: 0.85rem; color: #5f6368; }
+
+.result-area { margin-top: 24px; text-align: center; }
+.download-link {
+  display: inline-block; padding: 10px 24px; font-size: 0.95rem; font-weight: 500;
+  color: #1a73e8; background: #e8f0fe; border-radius: 24px; text-decoration: none;
+}
+.download-link:hover { background: #d2e3fc; }
+
+@media (max-width: 600px) {
+  .title { font-size: 2rem; }
+  .search-row { flex-wrap: wrap; }
+  #url-input { min-width: 0; width: 100%; }
+  #quality-select, #download-btn { flex: 1; }
+}

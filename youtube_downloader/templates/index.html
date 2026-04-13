@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Downloader</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="container">
+    <h1 class="title">YouTube Downloader</h1>
+    <p class="subtitle">Paste a YouTube link to download the video</p>
+
+    <div class="search-row">
+      <input
+        type="text"
+        id="url-input"
+        placeholder="Paste YouTube URL here"
+        aria-label="YouTube URL"
+      >
+      <select id="quality-select" aria-label="Select quality" hidden>
+        <option value="" disabled selected>Select quality</option>
+      </select>
+      <button type="button" id="download-btn" hidden disabled>Download</button>
+    </div>
+    <div id="loading-indicator" class="loading-indicator" hidden>Fetching video info…</div>
+
+    <div id="error-msg" class="error-msg" hidden></div>
+
+    <div id="progress-area" class="progress-area" hidden>
+      <p id="video-title" class="video-title"></p>
+      <div class="progress-bar-track">
+        <div id="progress-bar-fill" class="progress-bar-fill"></div>
+      </div>
+      <span id="progress-label" class="progress-label">0%</span>
+    </div>
+
+    <div id="result-area" class="result-area" hidden>
+      <a id="download-link" href="#" class="download-link">⬇ Download your file</a>
+    </div>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
