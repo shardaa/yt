@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:$PORT youtube_downloader.web_app:create_app()
+web: gunicorn app:app --bind 0.0.0.0:$PORT
